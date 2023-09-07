@@ -8,19 +8,19 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - CameraConfiner
+  - ClimbingStuff
+  - Hittable
+  - Weapon
+  - Platforms
+  - SpawnPoints
+  - Pickable
+  - Enemies
+  - AgentCollider
   - 
   - 
   - 
@@ -40,4 +40,28 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1390059539
+    locked: 0
+  - name: Exits
+    uniqueID: 2113823917
+    locked: 0
+  - name: Agents
+    uniqueID: 4137073415
+    locked: 0
+  - name: Player
+    uniqueID: 2802911087
+    locked: 0
+  - name: Weapons
+    uniqueID: 4274939137
+    locked: 0
+  - name: Front
+    uniqueID: 309908733
+    locked: 0
+  - name: Pickable
+    uniqueID: 1840281599
+    locked: 0
+  - name: Ui
+    uniqueID: 1962199579
     locked: 0
