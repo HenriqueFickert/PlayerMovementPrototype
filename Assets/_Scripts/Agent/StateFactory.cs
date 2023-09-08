@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class StateFactory : MonoBehaviour
+namespace StatePattern
 {
-    // Start is called before the first frame update
-    void Start()
+    public class StateFactory : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        private State Idle, Move, Fall, Climbing, GetHit, Jump, Attack, Die;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public State GetAppropriateState(EAgentState stateType)
+            => stateType switch
+            {
+                EAgentState.Idle => Idle,
+                EAgentState.Move => Move,
+                EAgentState.Fall => Fall,
+                EAgentState.Climb => Climbing,
+                EAgentState.Hit => GetHit,
+                EAgentState.Jump => Jump,
+                EAgentState.Attack => Attack,
+                EAgentState.Die => Die,
+                _ => throw new Exception("State not defined for " + stateType.ToString() + " state type enum.")
+            };
     }
 }

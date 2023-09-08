@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IAgentInput : MonoBehaviour
+namespace StatePattern
 {
-    // Start is called before the first frame update
-    void Start()
+    public class IAgentInput : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
