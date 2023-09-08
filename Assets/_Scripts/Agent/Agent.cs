@@ -7,15 +7,28 @@ namespace StatePattern
 {
     public class Agent : MonoBehaviour
     {
+        [Header("Agent Data:")]
         public AgentData agentData;
 
-        public Rigidbody2D rb2d;
+        [Header("Inputs:")]
         public PlayerInput agentInput;
-        public AgentAnimation animationManager;
+
+        [Header("Components:")]
+        [HideInInspector]
+        public Rigidbody2D rb2d;
+
+        [HideInInspector]
         public AgentRenderer agentRenderer;
 
+        [HideInInspector]
+        public AgentAnimation animationManager;
+
+        [Header("States:")]
+        [SerializeField]
+        private State IdleSate;
+
+        [HideInInspector]
         public State currentState = null, previousState = null;
-        public State IdleSate;
 
         public StateFactory stateFactory;
 
@@ -33,9 +46,7 @@ namespace StatePattern
         private void Start()
         {
             foreach (State state in GetComponentsInChildren<State>())
-            {
                 state.InitializeState(this);
-            }
 
             agentInput.OnMovement += agentRenderer.FaceDirection;
             TransitionToState(IdleSate);
@@ -59,9 +70,7 @@ namespace StatePattern
         private void DisplayState()
         {
             if (previousState == null || previousState.GetType() != currentState.GetType())
-            {
                 stateName = currentState.GetType().ToString();
-            }
         }
 
         private void Update()
