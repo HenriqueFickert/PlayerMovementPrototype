@@ -7,6 +7,10 @@ namespace StatePattern
         protected override void EnterState()
         {
             agent.animationManager.PlayAnimation(EAgentState.Idle);
+
+            agent.rb2d.isKinematic = true;
+            if (agent.groundDetector.isGrounded)
+                agent.rb2d.velocity = Vector2.zero;
         }
 
         protected override void HandleMovement(Vector2 input)
@@ -15,6 +19,11 @@ namespace StatePattern
             {
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Move));
             }
+        }
+
+        protected override void ExitState()
+        {
+            agent.rb2d.isKinematic = false;
         }
     }
 }

@@ -23,7 +23,9 @@ namespace StatePattern
 
         public override void StateUpdate()
         {
-            base.StateUpdate();
+            if (TesteFallTrasition())
+                return;
+
             CalCulateVelocity();
             SetPlayerVelocity();
 
@@ -31,12 +33,12 @@ namespace StatePattern
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
         }
 
-        private void SetPlayerVelocity()
+        protected void SetPlayerVelocity()
         {
             agent.rb2d.velocity = movementData.currentVelocity;
         }
 
-        private void CalCulateVelocity()
+        protected void CalCulateVelocity()
         {
             CalculateSpeed(agent.agentInput.MovementVector, movementData);
             CalculateHorizontalDirection(movementData);
@@ -44,7 +46,7 @@ namespace StatePattern
             movementData.currentVelocity.y = agent.rb2d.velocity.y;
         }
 
-        private void CalculateHorizontalDirection(MovementData movementData)
+        protected void CalculateHorizontalDirection(MovementData movementData)
         {
             if (agent.agentInput.MovementVector.x == 0)
                 return;
@@ -52,7 +54,7 @@ namespace StatePattern
             movementData.horizontalMovementDirection = agent.agentInput.MovementVector.x < 0 ? -1 : 1;        
         }
 
-        private void CalculateSpeed(Vector2 movementVector, MovementData movementData)
+        protected void CalculateSpeed(Vector2 movementVector, MovementData movementData)
         {
             if (Mathf.Abs(movementVector.x) > 0)
                 movementData.currentSpeed += agent.agentData.acceleration * Time.deltaTime;

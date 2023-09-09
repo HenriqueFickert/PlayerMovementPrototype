@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -28,7 +29,8 @@ namespace StatePattern
             EnterState();
         }
 
-        protected virtual void EnterState() { }
+        protected virtual void EnterState()
+        { }
 
         public void Exit()
         {
@@ -41,18 +43,45 @@ namespace StatePattern
             ExitState();
         }
 
-        protected virtual void ExitState() { }
+        protected virtual void ExitState()
+        { }
 
-        public virtual void StateUpdate() { }
+        public virtual void StateUpdate()
+        {
+            TesteFallTrasition();
+        }
 
-        public virtual void StateFixedUpdate() { }
+        public virtual void StateFixedUpdate()
+        { }
 
-        protected virtual void HandleMovement(Vector2 vector2) { }
+        protected virtual void HandleMovement(Vector2 vector2)
+        { }
 
-        protected virtual void HandleJumpPressed() { }
+        protected virtual void HandleJumpPressed()
+        {
+            TestJumpTransition();
+        }
 
-        protected virtual void HandleJumpReleased() { }
+        protected virtual void HandleJumpReleased()
+        { }
 
-        protected virtual void HandleAttack() { }
+        protected virtual void HandleAttack()
+        { }
+
+        protected bool TesteFallTrasition()
+        {
+            if (!agent.groundDetector.isGrounded)
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Fall));
+
+            return !agent.groundDetector.isGrounded;
+        }
+
+        protected virtual void TestJumpTransition()
+        {
+            if (agent.groundDetector.isGrounded)
+            {
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Jump));
+            }
+        }
     }
 }

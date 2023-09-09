@@ -16,8 +16,8 @@ MonoBehaviour:
   maxSpeed: 5
   acceleration: 50
   deacceleration: 50
-  jumpSpeed: 10
-  gravityModifier: 3.5
-  lowJumpMultiplier: 5
+  jumpSpeed: 12
+  gravityModifier: 0.5
+  lowJumpMultiplier: 2
   climbVerticalSpeed: 5
   climbHorizontalSpeed: 2

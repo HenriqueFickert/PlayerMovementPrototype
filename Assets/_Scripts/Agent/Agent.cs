@@ -13,6 +13,8 @@ namespace StatePattern
         [Header("Inputs:")]
         public PlayerInput agentInput;
 
+        public GroundDetector groundDetector;
+
         [Header("Components:")]
         [HideInInspector]
         public Rigidbody2D rb2d;
@@ -41,6 +43,7 @@ namespace StatePattern
             agentInput = GetComponentInParent<PlayerInput>();
             animationManager = GetComponentInChildren<AgentAnimation>();
             agentRenderer = GetComponentInChildren<AgentRenderer>();
+            groundDetector = GetComponentInChildren<GroundDetector>();
         }
 
         private void Start()
@@ -80,6 +83,7 @@ namespace StatePattern
 
         private void FixedUpdate()
         {
+            groundDetector.CheckIsGrounded();
             currentState.StateFixedUpdate();
         }
     }

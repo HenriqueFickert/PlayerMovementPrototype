@@ -46,7 +46,7 @@ namespace StatePattern
 
             if (Input.GetKeyUp(jumpKey))
             {
-                OnJumpPressed?.Invoke();
+                OnJumpReleased?.Invoke();
             }
         }
 

@@ -1431,6 +1431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701235269}
   - component: {fileID: 701235270}
+  - component: {fileID: 701235271}
   m_Layer: 15
   m_Name: GroundCollider
   m_TagString: Untagged
@@ -1486,8 +1487,30 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.05, y: -0.05}
-  m_Size: {x: 0.65, y: 1.1}
+  m_Size: {x: 0.6, y: 1.1}
   m_Direction: 0
+--- !u!114 &701235271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701235268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ac5f8e7c4c7d649990c8d78671322e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentCollider: {fileID: 701235270}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2112
+  boxCastYOffeset: -0.435
+  boxCastXOffeset: 0
+  boxCastWidth: 0.45
+  boxCastHeight: 0.25
+  gizmoColorNotGrounded: {r: 1, g: 0, b: 0, a: 1}
+  gizmoColorGrounded: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &724204781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,13 +1882,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentData: {fileID: 11400000, guid: 0e5c455aa2bbda64598abce40f99f3d3, type: 2}
+  agentInput: {fileID: 1068045626}
+  groundDetector: {fileID: 0}
   rb2d: {fileID: 1620297819}
-  agentInput: {fileID: 0}
-  animationManager: {fileID: 0}
   agentRenderer: {fileID: 0}
+  animationManager: {fileID: 0}
+  IdleSate: {fileID: 2012123379}
   currentState: {fileID: 0}
   previousState: {fileID: 0}
-  IdleSate: {fileID: 2012123379}
   stateFactory: {fileID: 2012123380}
   stateName: 
 --- !u!114 &1620297821
@@ -1939,6 +1963,8 @@ GameObject:
   - component: {fileID: 2012123380}
   - component: {fileID: 2012123379}
   - component: {fileID: 2012123381}
+  - component: {fileID: 2012123382}
+  - component: {fileID: 2012123383}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -1993,10 +2019,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Idle: {fileID: 2012123379}
   Move: {fileID: 2012123381}
-  Fall: {fileID: 0}
+  Fall: {fileID: 2012123383}
   Climbing: {fileID: 0}
   GetHit: {fileID: 0}
-  Jump: {fileID: 0}
+  Jump: {fileID: 2012123382}
   Attack: {fileID: 0}
   Die: {fileID: 0}
 --- !u!114 &2012123381
@@ -2009,6 +2035,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55b997497fa169e42ac0433016a8514c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  movementData: {fileID: 0}
+--- !u!114 &2012123382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012123377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815bd91380b62f9439fe9be4d10565f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  movementData: {fileID: 0}
+--- !u!114 &2012123383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012123377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b93dae46a7c00545988e59892676648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnEnter:
