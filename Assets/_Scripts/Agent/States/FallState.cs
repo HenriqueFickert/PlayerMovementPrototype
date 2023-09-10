@@ -12,7 +12,8 @@ namespace StatePattern
             agent.animationManager.PlayAnimation(EAgentState.Fall);
         }
 
-        protected override void HandleJumpPressed() {
+        protected override void HandleJumpPressed()
+        {
             // Disable Jump Again
         }
 
@@ -26,9 +27,7 @@ namespace StatePattern
             SetPlayerVelocity();
 
             if (agent.groundDetector.isGrounded)
-            {
-                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
-            }
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Move));
         }
     }
 }
