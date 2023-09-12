@@ -3430,6 +3430,7 @@ MonoBehaviour:
   jumpKey: 32
   attackKey: 122
   weaponSwapKey: 101
+  dashKey: 120
   menuKey: 27
   OnMenuKeyPressed:
     m_PersistentCalls:
@@ -4419,6 +4420,7 @@ GameObject:
   - component: {fileID: 2012123382}
   - component: {fileID: 2012123383}
   - component: {fileID: 2012123384}
+  - component: {fileID: 2012123385}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -4479,6 +4481,7 @@ MonoBehaviour:
   Jump: {fileID: 2012123382}
   Attack: {fileID: 0}
   Die: {fileID: 0}
+  Dash: {fileID: 2012123385}
 --- !u!114 &2012123381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4554,6 +4557,25 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2012123385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012123377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dd7800b9b73ca49a45b0945fd11578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  movementData: {fileID: 0}
 --- !u!1 &2035722914
 GameObject:
   m_ObjectHideFlags: 0
