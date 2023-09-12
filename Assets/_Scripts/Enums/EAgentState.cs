@@ -5,6 +5,7 @@ public enum EAgentState
     Jump,
     Fall,
     Climb,
+    ClimbIdle,
     Land, 
     Attack,
     Hit,

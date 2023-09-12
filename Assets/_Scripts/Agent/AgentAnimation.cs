@@ -28,6 +28,18 @@ namespace StatePattern
             animator.Play(state, -1, 0f);
         }
 
+        public void StopAnimation()
+        {
+            animator.enabled = false;
+        }
+
+        public void StartAnimation()
+        {
+            animator.enabled = true;
+        }
+
+        public bool IsInAnimation(EAgentState agentState) => animator.GetCurrentAnimatorStateInfo(0).IsName(agentState.ToString());
+
         private bool HasAnimation(string name) => clips.Any(clip => clip.name == name);
     }
 }

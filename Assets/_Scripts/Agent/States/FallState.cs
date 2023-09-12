@@ -28,6 +28,9 @@ namespace StatePattern
 
             if (agent.groundDetector.isGrounded)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Move));
+
+            if (agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0)
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Climb));
         }
     }
 }

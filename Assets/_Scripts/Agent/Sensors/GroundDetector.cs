@@ -37,7 +37,8 @@ namespace StatePattern
 
             if (raycastHit.collider != null)
             {
-                isGrounded = true;
+                if (raycastHit.collider.IsTouching(agentCollider))
+                    isGrounded = true;
             }
             else
             {

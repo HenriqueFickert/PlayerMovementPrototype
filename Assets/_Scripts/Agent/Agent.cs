@@ -14,6 +14,8 @@ namespace StatePattern
         public PlayerInput agentInput;
 
         public GroundDetector groundDetector;
+        public ClimbDetector climbDetector;
+        public RoofDetector roofDetector;
 
         [Header("Components:")]
         [HideInInspector]
@@ -44,6 +46,8 @@ namespace StatePattern
             animationManager = GetComponentInChildren<AgentAnimation>();
             agentRenderer = GetComponentInChildren<AgentRenderer>();
             groundDetector = GetComponentInChildren<GroundDetector>();
+            climbDetector = GetComponentInChildren<ClimbDetector>();
+            roofDetector = GetComponentInChildren<RoofDetector>();
         }
 
         private void Start()

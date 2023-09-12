@@ -37,6 +37,9 @@ namespace StatePattern
 
             if (agent.rb2d.velocity.y <= 0)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Fall));
+
+            if (agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0)
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Climb));
         }
 
         private void ControlJumpHeight()
