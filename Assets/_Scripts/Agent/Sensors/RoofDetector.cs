@@ -21,8 +21,8 @@ namespace StatePattern
         [Range(0, 2)]
         public float boxCastWidth = 1, boxCastHeight = 1;
 
-        public Color gizmoColorNotGrounded = Color.red;
-        public Color gizmoColorGrounded = Color.green;
+        public Color gizmoColorNotRoof = Color.red;
+        public Color gizmoColorRoof = Color.green;
 
         private void Awake()
         {
@@ -30,10 +30,10 @@ namespace StatePattern
                 agentCollider = GetComponent<Collider2D>();
         }
 
-        public void CheckIsGrounded()
+        public void CheckRoof()
         {
             RaycastHit2D raycastHit = Physics2D.BoxCast(agentCollider.bounds.center + new Vector3(boxCastXOffeset, boxCastYOffeset, 0),
-                                            new Vector3(boxCastWidth, boxCastHeight), 0, Vector2.up, 0, layerMask);
+                                            new Vector3(boxCastWidth, boxCastHeight), 0, Vector2.down, 0, layerMask);
 
             if (raycastHit.collider != null)
                 hasRoof = true;
@@ -46,7 +46,7 @@ namespace StatePattern
             if (agentCollider == null)
                 return;
 
-            Gizmos.color = hasRoof ? gizmoColorGrounded : gizmoColorNotGrounded;
+            Gizmos.color = hasRoof ? gizmoColorRoof : gizmoColorNotRoof;
             Gizmos.DrawWireCube(agentCollider.bounds.center + new Vector3(boxCastXOffeset, boxCastYOffeset, 0), new Vector3(boxCastWidth, boxCastHeight));
         }
     }

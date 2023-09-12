@@ -9,7 +9,7 @@ namespace StatePattern
     public class StateFactory : MonoBehaviour
     {
         [SerializeField]
-        private State Idle, Move, Fall, Climbing, GetHit, Jump, Attack, Die;
+        private State Idle, Move, Fall, Climbing, GetHit, Jump, Attack, Die, Dash;
 
         public State GetAppropriateState(EAgentState stateType)
             => stateType switch
@@ -22,6 +22,7 @@ namespace StatePattern
                 EAgentState.Jump => Jump,
                 EAgentState.Attack => Attack,
                 EAgentState.Die => Die,
+                EAgentState.Dash => Dash,
                 _ => throw new Exception("State not defined for " + stateType.ToString() + " state type enum.")
             };
     }

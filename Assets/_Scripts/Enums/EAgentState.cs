@@ -6,8 +6,9 @@ public enum EAgentState
     Fall,
     Climb,
     ClimbIdle,
-    Land, 
+    Land,
     Attack,
     Hit,
-    Die
+    Die,
+    Dash
 }

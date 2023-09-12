@@ -11,7 +11,7 @@ namespace StatePattern
         protected override void EnterState()
         {
             agent.animationManager.PlayAnimation(EAgentState.ClimbIdle);
-            agent.transform.position = new (agent.climbDetector.collisionTransform.x, agent.transform.position.y);
+            agent.transform.position = new(agent.climbDetector.collisionTransform.x, agent.transform.position.y);
 
             previousGravityScale = agent.rb2d.gravityScale;
             agent.rb2d.gravityScale = 0;
@@ -25,25 +25,32 @@ namespace StatePattern
 
         public override void StateUpdate()
         {
-            if (agent.agentInput.MovementVector.magnitude > 0 && !agent.roofDetector.hasRoof)
+            if ((!agent.roofDetector.hasRoof && agent.agentInput.MovementVector.y > 0 ) || (agent.agentInput.MovementVector.y < 0 && !agent.groundDetector.isGrounded))
             {
-                if (agent.animationManager.IsInAnimation(EAgentState.ClimbIdle))
-                    agent.animationManager.PlayAnimation(EAgentState.Climb);
-
+                SwitchAnimationIfCurrent(EAgentState.ClimbIdle, EAgentState.Climb);
                 agent.rb2d.velocity = new Vector2(0, agent.agentInput.MovementVector.y * agent.agentData.climbVerticalSpeed);
             }
             else
             {
-                if (agent.animationManager.IsInAnimation(EAgentState.Climb))
-                    agent.animationManager.PlayAnimation(EAgentState.ClimbIdle);
-               
+                SwitchAnimationIfCurrent(EAgentState.Climb, EAgentState.ClimbIdle);
                 agent.rb2d.velocity = Vector2.zero;
             }
 
-            if (!agent.climbDetector.CanClimb)
+            if (!agent.climbDetector.CanClimb || (agent.groundDetector.isGrounded && Mathf.Abs(agent.agentInput.MovementVector.x) > 0))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Move));
         }
 
+        private void SwitchAnimationIfCurrent(EAgentState currentAnimationState, EAgentState desireAnimationState)
+        {
+            if (agent.animationManager.IsInAnimation(currentAnimationState))
+                agent.animationManager.PlayAnimation(desireAnimationState);
+        }
+
+        public override void StateFixedUpdate()
+        {
+            agent.roofDetector.CheckRoof();
+        }
+        
         protected override void ExitState()
         {
             agent.rb2d.gravityScale = previousGravityScale;

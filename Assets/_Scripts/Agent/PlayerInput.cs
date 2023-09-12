@@ -11,21 +11,23 @@ namespace StatePattern
         [field: SerializeField]
         public Vector2 MovementVector { get; private set; }
 
-        public event Action OnAttack, OnJumpPressed, OnJumpReleased, OnWeaponChange;
+        public event Action OnAttack, OnJumpPressed, OnJumpReleased, OnWeaponChange, OnDash;
+
         public event Action<Vector2> OnMovement;
 
-        public KeyCode jumpKey, attackKey, weaponSwapKey, menuKey;
+        public KeyCode jumpKey, attackKey, weaponSwapKey, dashKey, menuKey;
 
         public UnityEvent OnMenuKeyPressed;
 
         private void Update()
         {
-            if(Time.timeScale > 0)
+            if (Time.timeScale > 0)
             {
                 GetMovementInput();
                 GetJumpInput();
                 GetAttackInput();
                 GetWeaponSwapInput();
+                GetDashInput();
             }
 
             GetMenuInput();
@@ -47,6 +49,14 @@ namespace StatePattern
             if (Input.GetKeyUp(jumpKey))
             {
                 OnJumpReleased?.Invoke();
+            }
+        }
+
+        private void GetDashInput()
+        {
+            if (Input.GetKeyDown(dashKey))
+            {
+                OnDash?.Invoke();
             }
         }
 

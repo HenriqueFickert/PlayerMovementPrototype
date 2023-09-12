@@ -24,6 +24,7 @@ namespace StatePattern
             agent.agentInput.OnJumpPressed += HandleJumpPressed;
             agent.agentInput.OnJumpReleased += HandleJumpReleased;
             agent.agentInput.OnMovement += HandleMovement;
+            agent.agentInput.OnDash += HandleDash;
 
             OnEnter?.Invoke();
             EnterState();
@@ -38,6 +39,7 @@ namespace StatePattern
             agent.agentInput.OnJumpPressed -= HandleJumpPressed;
             agent.agentInput.OnJumpReleased -= HandleJumpReleased;
             agent.agentInput.OnMovement -= HandleMovement;
+            agent.agentInput.OnDash -= HandleDash;
 
             OnExit?.Invoke();
             ExitState();
@@ -64,6 +66,11 @@ namespace StatePattern
 
         protected virtual void HandleJumpReleased()
         { }
+
+        protected virtual void HandleDash()
+        {
+            agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Dash));
+        }
 
         protected virtual void HandleAttack()
         { }
