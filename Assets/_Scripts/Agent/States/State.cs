@@ -50,14 +50,16 @@ namespace StatePattern
 
         public virtual void StateUpdate()
         {
-            TesteFallTrasition();
+            TestFallTrasition();
         }
 
         public virtual void StateFixedUpdate()
         { }
 
         protected virtual void HandleMovement(Vector2 vector2)
-        { }
+        {
+            agent.agentRenderer.FaceDirection(vector2);
+        }
 
         protected virtual void HandleJumpPressed()
         {
@@ -69,13 +71,19 @@ namespace StatePattern
 
         protected virtual void HandleDash()
         {
-            agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Dash));
+            TestDashTransition();
         }
 
         protected virtual void HandleAttack()
         { }
 
-        protected bool TesteFallTrasition()
+        protected void TestDashTransition()
+        {
+            if (agent.canDash)
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Dash));
+        }
+
+        protected bool TestFallTrasition()
         {
             if (!agent.groundDetector.isGrounded)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Fall));

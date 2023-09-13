@@ -17,6 +17,9 @@ namespace StatePattern
         public ClimbDetector climbDetector;
         public RoofDetector roofDetector;
 
+        public bool canDash = true;
+        public float dashTime;
+
         [Header("Components:")]
         [HideInInspector]
         public Rigidbody2D rb2d;
@@ -55,7 +58,6 @@ namespace StatePattern
             foreach (State state in GetComponentsInChildren<State>())
                 state.InitializeState(this);
 
-            agentInput.OnMovement += agentRenderer.FaceDirection;
             TransitionToState(IdleSate);
         }
 
@@ -82,6 +84,7 @@ namespace StatePattern
 
         private void Update()
         {
+            DashInputCheck();
             currentState.StateUpdate();
         }
 
@@ -89,6 +92,19 @@ namespace StatePattern
         {
             groundDetector.CheckIsGrounded();
             currentState.StateFixedUpdate();
+        }
+
+        private void DashInputCheck()
+        {
+            if (!canDash)
+            {
+                dashTime += Time.deltaTime;
+                if (dashTime > agentData.dashCooldown && groundDetector.isGrounded)
+                {
+                    dashTime = 0;
+                    canDash = true;
+                }
+            }
         }
     }
 }

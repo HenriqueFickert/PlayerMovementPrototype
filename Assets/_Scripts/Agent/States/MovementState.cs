@@ -23,7 +23,7 @@ namespace StatePattern
 
         public override void StateUpdate()
         {
-            if (TesteFallTrasition())
+            if (TestFallTrasition())
                 return;
 
             CalCulateVelocity();

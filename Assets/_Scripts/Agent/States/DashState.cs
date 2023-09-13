@@ -12,6 +12,7 @@ namespace StatePattern
         private float previousGravityScale = 0f;
 
         private Vector2 direction;
+        private float dashTime;
 
         private void Awake()
         {
@@ -20,12 +21,12 @@ namespace StatePattern
 
         protected override void EnterState()
         {
+            agent.canDash = false;
             agent.animationManager.PlayAnimation(EAgentState.Dash);
+            direction = agent.transform.right * (agent.transform.localScale.x > 0 ? 1 : -1);
 
             previousGravityScale = agent.rb2d.gravityScale;
             agent.rb2d.gravityScale = 0;
-
-            direction = agent.transform.right * (agent.transform.localScale.x > 0 ? 1 : -1);
 
             movementData.currentVelocity = agent.rb2d.velocity;
             movementData.currentVelocity = new Vector2(agent.agentData.dashForce, 0) * direction;
@@ -34,13 +35,17 @@ namespace StatePattern
 
         public override void StateUpdate()
         {
-            StartCoroutine(Dash());
+            Dash();
         }
 
-        private IEnumerator Dash()
-        {
-            yield return new WaitForSeconds(agent.agentData.dashTime);
-            agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Move));
+        private void Dash() {
+
+            dashTime += Time.deltaTime;
+            if (dashTime >= agent.agentData.dashTime)
+            {
+                dashTime = 0;
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
+            }
         }
 
         protected override void HandleJumpPressed()

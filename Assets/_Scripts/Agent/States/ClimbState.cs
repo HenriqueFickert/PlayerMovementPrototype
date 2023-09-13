@@ -46,6 +46,11 @@ namespace StatePattern
                 agent.animationManager.PlayAnimation(desireAnimationState);
         }
 
+        protected override void HandleDash()
+        {
+            //Disable Dash
+        }
+
         public override void StateFixedUpdate()
         {
             agent.roofDetector.CheckRoof();

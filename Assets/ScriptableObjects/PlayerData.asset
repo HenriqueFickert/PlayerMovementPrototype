@@ -21,5 +21,6 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   climbVerticalSpeed: 5
   climbHorizontalSpeed: 2
-  dashForce: 20
-  dashTime: 0.12
+  dashForce: 8
+  dashTime: 0.45
+  dashCooldown: 1
