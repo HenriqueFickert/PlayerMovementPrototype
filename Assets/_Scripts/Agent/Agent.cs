@@ -17,7 +17,7 @@ namespace StatePattern
         public GroundDetector groundDetector;
         public ClimbDetector climbDetector;
         public RoofDetector roofDetector;
-        private TimerChecker timerChecker = new ();
+        public AgentCooldownManager agentCooldownManager;
 
         public bool canDash = true;
 
@@ -46,6 +46,7 @@ namespace StatePattern
         private void Awake()
         {
             rb2d = GetComponent<Rigidbody2D>();
+            agentCooldownManager = GetComponent<AgentCooldownManager>();
             agentInput = GetComponentInParent<PlayerInput>();
             animationManager = GetComponentInChildren<AgentAnimation>();
             agentRenderer = GetComponentInChildren<AgentRenderer>();
@@ -85,23 +86,20 @@ namespace StatePattern
 
         private void Update()
         {
-            DashInputCheck();
+            CooldownCheckerUpdate();
             currentState.StateUpdate();
+        }
+
+        private void CooldownCheckerUpdate()
+        {
+            if (!canDash)
+                canDash = agentCooldownManager.DashCooldownCheck();
         }
 
         private void FixedUpdate()
         {
             groundDetector.CheckIsGrounded();
             currentState.StateFixedUpdate();
-        }
-
-        private void DashInputCheck()
-        {
-            if (!canDash)
-            {
-                if (timerChecker.CheckTime(agentData.dashCooldown) && groundDetector.isGrounded)
-                    canDash = true;
-            }
         }
     }
 }
