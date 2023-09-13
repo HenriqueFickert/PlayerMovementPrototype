@@ -16,9 +16,9 @@ namespace StatePattern
         public GroundDetector groundDetector;
         public ClimbDetector climbDetector;
         public RoofDetector roofDetector;
+        public TimerChecker timerChecker;
 
         public bool canDash = true;
-        public float dashTime;
 
         [Header("Components:")]
         [HideInInspector]
@@ -45,6 +45,7 @@ namespace StatePattern
         private void Awake()
         {
             rb2d = GetComponent<Rigidbody2D>();
+            timerChecker = GetComponent<TimerChecker>();
             agentInput = GetComponentInParent<PlayerInput>();
             animationManager = GetComponentInChildren<AgentAnimation>();
             agentRenderer = GetComponentInChildren<AgentRenderer>();
@@ -98,12 +99,8 @@ namespace StatePattern
         {
             if (!canDash)
             {
-                dashTime += Time.deltaTime;
-                if (dashTime > agentData.dashCooldown && groundDetector.isGrounded)
-                {
-                    dashTime = 0;
+                if (timerChecker.CheckTimer(agentData.dashCooldown) && groundDetector.isGrounded)
                     canDash = true;
-                }
             }
         }
     }

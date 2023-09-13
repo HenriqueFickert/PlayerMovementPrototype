@@ -12,7 +12,6 @@ namespace StatePattern
         private float previousGravityScale = 0f;
 
         private Vector2 direction;
-        private float dashTime;
 
         private void Awake()
         {
@@ -40,12 +39,8 @@ namespace StatePattern
 
         private void Dash() {
 
-            dashTime += Time.deltaTime;
-            if (dashTime >= agent.agentData.dashTime)
-            {
-                dashTime = 0;
+            if(agent.timerChecker.CheckTimer(agent.agentData.dashTime))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
-            }
         }
 
         protected override void HandleJumpPressed()
