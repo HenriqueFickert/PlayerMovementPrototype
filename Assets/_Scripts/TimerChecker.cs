@@ -8,7 +8,7 @@ namespace Utils
     {
         private float elapsedTime = 0;
 
-        public bool CheckTime(float interval)
+        public bool CheckTimer(float interval)
         {
             elapsedTime += Time.deltaTime;
 

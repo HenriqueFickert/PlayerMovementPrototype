@@ -79,7 +79,7 @@ namespace StatePattern
 
         protected void TestDashTransition()
         {
-            if (agent.canDash)
+            if (agent.agentCooldownManager.dashCooldown.IsAvailable)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Dash));
         }
 

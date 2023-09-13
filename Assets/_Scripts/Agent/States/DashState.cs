@@ -21,7 +21,7 @@ namespace StatePattern
 
         protected override void EnterState()
         {
-            agent.canDash = false;
+            agent.agentCooldownManager.dashCooldown.IsAvailable = false;
             agent.animationManager.PlayAnimation(EAgentState.Dash);
             direction = agent.transform.right * (agent.transform.localScale.x > 0 ? 1 : -1);
 
@@ -40,7 +40,7 @@ namespace StatePattern
 
         private void Dash() {
 
-            if(timerChecker.CheckTime(agent.agentData.dashTime))
+            if(timerChecker.CheckTimer(agent.agentData.dashTime))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
         }
 

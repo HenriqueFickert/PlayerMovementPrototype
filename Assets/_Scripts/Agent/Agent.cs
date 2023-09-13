@@ -17,9 +17,6 @@ namespace StatePattern
         public GroundDetector groundDetector;
         public ClimbDetector climbDetector;
         public RoofDetector roofDetector;
-        public AgentCooldownManager agentCooldownManager;
-
-        public bool canDash = true;
 
         [Header("Components:")]
         [HideInInspector]
@@ -39,15 +36,16 @@ namespace StatePattern
         public State currentState = null, previousState = null;
 
         public StateFactory stateFactory;
+        public AgentCooldownManager agentCooldownManager;
 
         [Header("State Debugging:")]
         public string stateName = "";
 
         private void Awake()
         {
+            agentInput = GetComponentInParent<PlayerInput>();
             rb2d = GetComponent<Rigidbody2D>();
             agentCooldownManager = GetComponent<AgentCooldownManager>();
-            agentInput = GetComponentInParent<PlayerInput>();
             animationManager = GetComponentInChildren<AgentAnimation>();
             agentRenderer = GetComponentInChildren<AgentRenderer>();
             groundDetector = GetComponentInChildren<GroundDetector>();
@@ -86,14 +84,7 @@ namespace StatePattern
 
         private void Update()
         {
-            CooldownCheckerUpdate();
             currentState.StateUpdate();
-        }
-
-        private void CooldownCheckerUpdate()
-        {
-            if (!canDash)
-                canDash = agentCooldownManager.DashCooldownCheck();
         }
 
         private void FixedUpdate()
