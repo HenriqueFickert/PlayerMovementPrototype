@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace StatePattern
 {
@@ -10,7 +11,7 @@ namespace StatePattern
         protected MovementData movementData;
 
         private float previousGravityScale = 0f;
-
+        private TimerChecker timerChecker = new();
         private Vector2 direction;
 
         private void Awake()
@@ -39,7 +40,7 @@ namespace StatePattern
 
         private void Dash() {
 
-            if(agent.timerChecker.CheckTimer(agent.agentData.dashTime))
+            if(timerChecker.CheckTime(agent.agentData.dashTime))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
         }
 

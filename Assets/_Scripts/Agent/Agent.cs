@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace StatePattern
 {
@@ -16,7 +17,7 @@ namespace StatePattern
         public GroundDetector groundDetector;
         public ClimbDetector climbDetector;
         public RoofDetector roofDetector;
-        public TimerChecker timerChecker;
+        private TimerChecker timerChecker = new ();
 
         public bool canDash = true;
 
@@ -45,7 +46,6 @@ namespace StatePattern
         private void Awake()
         {
             rb2d = GetComponent<Rigidbody2D>();
-            timerChecker = GetComponent<TimerChecker>();
             agentInput = GetComponentInParent<PlayerInput>();
             animationManager = GetComponentInChildren<AgentAnimation>();
             agentRenderer = GetComponentInChildren<AgentRenderer>();
@@ -99,7 +99,7 @@ namespace StatePattern
         {
             if (!canDash)
             {
-                if (timerChecker.CheckTimer(agentData.dashCooldown) && groundDetector.isGrounded)
+                if (timerChecker.CheckTime(agentData.dashCooldown) && groundDetector.isGrounded)
                     canDash = true;
             }
         }

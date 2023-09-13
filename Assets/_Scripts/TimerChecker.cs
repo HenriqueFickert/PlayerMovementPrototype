@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimerChecker : MonoBehaviour
+namespace Utils
 {
-    public float timer;
-
-    public bool CheckTimer(float timer, float time)
+    public class TimerChecker
     {
-        timer += Time.deltaTime;
-        if (timer < time)
-            return false;
+        private float elapsedTime = 0;
 
-        timer = 0;
-        return true;
-    } 
+        public bool CheckTime(float interval)
+        {
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime < interval)
+                return false;
+
+            elapsedTime = 0;
+            return true;
+        }
+    }
 }
