@@ -6,12 +6,15 @@ namespace StatePattern
     {
         private bool touchedGround = true;
 
-        public DashCooldown(Agent agent) : base(agent) { }
+        public DashCooldown(Agent agent) : base(agent)
+        {
+        }
 
         public bool IsAvailable
         {
             get { return isAvailable; }
-            set
+
+            private set
             {
                 isAvailable = value;
                 if (!isAvailable)
@@ -31,7 +34,12 @@ namespace StatePattern
                 touchedGround = true;
 
             CheckTimer(agent.agentData.dashCooldown);
-            return isAvailable = isReady  && touchedGround;
+            return isAvailable = isReady && touchedGround;
+        }
+
+        public void DashUsed()
+        {
+            IsAvailable = false;
         }
     }
 }

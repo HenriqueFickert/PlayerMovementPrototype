@@ -79,7 +79,7 @@ namespace StatePattern
 
         protected void TestDashTransition()
         {
-            if (agent.agentCooldownManager.dashCooldown.IsAvailable)
+            if (agent.agentCooldownManager.dashCooldown.IsAvailable && agent.groundDetector.isGrounded)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Dash));
         }
 

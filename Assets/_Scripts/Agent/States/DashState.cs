@@ -21,7 +21,8 @@ namespace StatePattern
 
         protected override void EnterState()
         {
-            agent.agentCooldownManager.dashCooldown.IsAvailable = false;
+            agent.agentCooldownManager.dashCooldown.DashUsed();
+
             agent.animationManager.PlayAnimation(EAgentState.Dash);
             direction = agent.transform.right * (agent.transform.localScale.x > 0 ? 1 : -1);
 
@@ -38,9 +39,12 @@ namespace StatePattern
             Dash();
         }
 
-        private void Dash() {
+        private void Dash()
+        {
+            movementData.currentVelocity.y = 0;
+            agent.rb2d.velocity = movementData.currentVelocity;
 
-            if(timerChecker.CheckTimer(agent.agentData.dashTime))
+            if (timerChecker.CheckTimer(agent.agentData.dashTime))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
         }
 
