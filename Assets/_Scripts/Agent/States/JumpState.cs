@@ -33,7 +33,7 @@ namespace StatePattern
         {
             ControlJumpHeight();
             CalCulateVelocity();
-            SetPlayerVelocity();
+            SetAgentVelocity();
 
             if (agent.rb2d.velocity.y <= 0)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Fall));

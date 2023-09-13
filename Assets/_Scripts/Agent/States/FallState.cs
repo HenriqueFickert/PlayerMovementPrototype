@@ -24,7 +24,7 @@ namespace StatePattern
             agent.rb2d.velocity = movementData.currentVelocity;
 
             CalCulateVelocity();
-            SetPlayerVelocity();
+            SetAgentVelocity();
 
             if (agent.groundDetector.isGrounded)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Move));
