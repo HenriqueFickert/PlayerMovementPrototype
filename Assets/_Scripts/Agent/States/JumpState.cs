@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StatePattern
@@ -38,7 +35,7 @@ namespace StatePattern
             if (agent.rb2d.velocity.y <= 0)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Fall));
 
-            if (agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0)
+            if (agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0 && agent.previousState != agent.stateFactory.GetAppropriateState(EAgentState.Climb))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Climb));
         }
 

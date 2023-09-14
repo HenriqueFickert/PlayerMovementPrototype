@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace StatePattern
 {
     public class DashCooldown : StateCooldown

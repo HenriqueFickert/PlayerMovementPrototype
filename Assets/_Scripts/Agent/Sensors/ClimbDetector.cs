@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -20,7 +18,7 @@ namespace StatePattern
         }
 
         [HideInInspector]
-        public Vector2 collisionTransform; 
+        public Vector2 collisionTransform;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

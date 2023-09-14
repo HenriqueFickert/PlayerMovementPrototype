@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StatePattern
@@ -25,7 +23,7 @@ namespace StatePattern
 
         public override void StateUpdate()
         {
-            if ((!agent.roofDetector.hasRoof && agent.agentInput.MovementVector.y > 0 ) || (agent.agentInput.MovementVector.y < 0 && !agent.groundDetector.isGrounded))
+            if ((!agent.roofDetector.hasRoof && agent.agentInput.MovementVector.y > 0) || (agent.agentInput.MovementVector.y < 0 && !agent.groundDetector.isGrounded))
             {
                 SwitchAnimationIfCurrent(EAgentState.ClimbIdle, EAgentState.Climb);
                 agent.rb2d.velocity = new Vector2(0, agent.agentInput.MovementVector.y * agent.agentData.climbVerticalSpeed);
@@ -55,7 +53,7 @@ namespace StatePattern
         {
             agent.roofDetector.CheckRoof();
         }
-        
+
         protected override void ExitState()
         {
             agent.rb2d.gravityScale = previousGravityScale;

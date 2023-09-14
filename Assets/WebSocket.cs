@@ -1,6 +1,6 @@
-using UnityEngine;
-using System.Net.Sockets;
 using System.Collections;
+using System.Net.Sockets;
+using UnityEngine;
 
 public class WebSocket : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class WebSocket : MonoBehaviour
 
     private TcpClient client;
 
-    void Start()
+    private void Start()
     {
         ConnectToServer();
         if (client.Connected)
@@ -18,14 +18,14 @@ public class WebSocket : MonoBehaviour
         }
     }
 
-    void ConnectToServer()
+    private void ConnectToServer()
     {
         client = new TcpClient(SERVER_IP, SERVER_PORT);
         Debug.Log("Conectado ao servidor!");
         ReceiveDataFromServer();
     }
 
-    IEnumerator ReceiveDataFromServer()
+    private IEnumerator ReceiveDataFromServer()
     {
         while (client.Connected)
         {

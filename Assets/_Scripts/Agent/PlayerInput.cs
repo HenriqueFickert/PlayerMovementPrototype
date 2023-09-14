@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,8 +16,6 @@ namespace StatePattern
         public KeyCode jumpKey, attackKey, weaponSwapKey, dashKey, menuKey;
 
         public UnityEvent OnMenuKeyPressed;
-
-
 
         private void Update()
         {

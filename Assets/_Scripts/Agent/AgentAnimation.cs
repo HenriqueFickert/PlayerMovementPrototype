@@ -13,7 +13,7 @@ namespace StatePattern
             animator = GetComponent<Animator>();
             clips = animator.runtimeAnimatorController.animationClips;
         }
-        
+
         public void PlayAnimation(EAgentState agentState)
         {
             string agentAnimation = agentState.ToString();

@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StatePattern
 {
     public class FallState : MovementState
     {
-
         protected override void EnterState()
         {
             agent.animationManager.PlayAnimation(EAgentState.Fall);

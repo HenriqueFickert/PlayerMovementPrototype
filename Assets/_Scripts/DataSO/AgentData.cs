@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StatePattern
@@ -33,6 +31,7 @@ namespace StatePattern
         [Header("Dash data")]
         [Space]
         public float dashForce = 10;
+
         public float dashTime = 1;
         public float dashCooldown = 1;
     }
