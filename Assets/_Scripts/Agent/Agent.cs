@@ -85,6 +85,7 @@ namespace StatePattern
 
         private void FixedUpdate()
         {
+            roofDetector.CheckRoof();
             groundDetector.CheckIsGrounded();
             currentState.StateFixedUpdate();
         }

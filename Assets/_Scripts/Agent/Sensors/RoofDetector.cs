@@ -22,6 +22,8 @@ namespace StatePattern
         public Color gizmoColorNotRoof = Color.red;
         public Color gizmoColorRoof = Color.green;
 
+        public bool teste;
+         
         private void Awake()
         {
             if (agentCollider == null)
@@ -31,12 +33,14 @@ namespace StatePattern
         public void CheckRoof()
         {
             RaycastHit2D raycastHit = Physics2D.BoxCast(agentCollider.bounds.center + new Vector3(boxCastXOffeset, boxCastYOffeset, 0),
-                                            new Vector3(boxCastWidth, boxCastHeight), 0, Vector2.down, 0, layerMask);
+                                            new Vector3(boxCastWidth, boxCastHeight), 0, Vector2.up, 0, layerMask);
 
             if (raycastHit.collider != null)
                 hasRoof = true;
             else
                 hasRoof = false;
+
+            teste = hasRoof;
         }
 
         private void OnDrawGizmos()

@@ -15,7 +15,7 @@ namespace StatePattern
 
         protected override void HandleMovement(Vector2 input)
         {
-            if (agent.climbDetector.CanClimb && Mathf.Abs(input.y) > 0)
+            if (agent.roofDetector.hasRoof && agent.climbDetector.CanClimb && agent.roofDetector.hasRoof && Mathf.Abs(input.y) > 0)
             {
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Climb));
             }
