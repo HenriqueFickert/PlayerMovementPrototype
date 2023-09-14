@@ -44,9 +44,14 @@ namespace StatePattern
                 agent.animationManager.PlayAnimation(desireAnimationState);
         }
 
+        protected override void HandleMovement(Vector2 vector2)
+        {
+           
+        }
+
         protected override void HandleDash()
         {
-            //Disable Dash
+            //Disable dash
         }
 
         public override void StateFixedUpdate()

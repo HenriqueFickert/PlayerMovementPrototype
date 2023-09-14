@@ -11,7 +11,7 @@ namespace StatePattern
 
         protected override void HandleJumpPressed()
         {
-            // Disable Jump Again
+            //Disable jump again
         }
 
         public override void StateUpdate()

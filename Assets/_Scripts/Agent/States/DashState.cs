@@ -53,12 +53,12 @@ namespace StatePattern
 
         protected override void HandleMovement(Vector2 vector2)
         {
-            //disable walk
+            //Disable walk
         }
 
         protected override void HandleDash()
         {
-            //disable dash
+            //Disable dash
         }
 
         protected override void ExitState()
