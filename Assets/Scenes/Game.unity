@@ -827,7 +827,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.699991, y: 0.21144009, z: -10}
+  m_LocalPosition: {x: 17.69998, y: 0.21144009, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3201,13 +3201,12 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  boxCastYOffeset: 0.57
+  boxCastYOffeset: 0
   boxCastXOffeset: 0
-  boxCastWidth: 0.35
-  boxCastHeight: 0.15
+  boxCastWidth: 0.3
+  boxCastHeight: 0.3
   gizmoColorNotRoof: {r: 1, g: 0.7595174, b: 0, a: 1}
   gizmoColorRoof: {r: 0, g: 1, b: 0.09286618, a: 1}
-  teste: 0
 --- !u!1 &724204781
 GameObject:
   m_ObjectHideFlags: 0

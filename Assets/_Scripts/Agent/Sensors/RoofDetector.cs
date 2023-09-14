@@ -21,8 +21,6 @@ namespace StatePattern
 
         public Color gizmoColorNotRoof = Color.red;
         public Color gizmoColorRoof = Color.green;
-
-        public bool teste;
          
         private void Awake()
         {
@@ -39,8 +37,6 @@ namespace StatePattern
                 hasRoof = true;
             else
                 hasRoof = false;
-
-            teste = hasRoof;
         }
 
         private void OnDrawGizmos()
