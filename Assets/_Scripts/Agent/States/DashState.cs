@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Utils;
 
@@ -9,7 +10,6 @@ namespace StatePattern
         protected MovementData movementData;
 
         private float previousGravityScale = 0f;
-        private TimerChecker timerChecker = new();
         private Vector2 direction;
 
         private void Awake()
@@ -30,20 +30,20 @@ namespace StatePattern
             movementData.currentVelocity = agent.rb2d.velocity;
             movementData.currentVelocity = new Vector2(agent.agentData.dashForce, 0) * direction;
             agent.rb2d.velocity = movementData.currentVelocity;
+
+            StartCoroutine(DashExit());
         }
 
         public override void StateUpdate()
         {
-            Dash();
-        }
-
-        private void Dash()
-        {
             movementData.currentVelocity.y = 0;
             agent.rb2d.velocity = movementData.currentVelocity;
+        }
 
-            if (timerChecker.CheckTimer(agent.agentData.dashTime))
-                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
+        IEnumerator DashExit()
+        {
+            yield return new WaitForSeconds(agent.agentData.dashTime);
+            agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
         }
 
         protected override void HandleJumpPressed()
