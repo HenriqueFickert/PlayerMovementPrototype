@@ -22,6 +22,10 @@ namespace StatePattern
         public float gravityModifier = 3.5f;
         public float lowJumpMultiplier = 5f;
 
+        [Header("Jump data")]
+        [Space]
+        public float maxFallSpeed = -35f;
+
         [Header("Climb data")]
         [Space]
         public float climbVerticalSpeed = 5;

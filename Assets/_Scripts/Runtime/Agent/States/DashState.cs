@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using Utils;
 
 namespace StatePattern
 {
@@ -40,7 +39,7 @@ namespace StatePattern
             agent.rb2d.velocity = movementData.currentVelocity;
         }
 
-        IEnumerator DashExit()
+        private IEnumerator DashExit()
         {
             yield return new WaitForSeconds(agent.agentData.dashTime);
             agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));

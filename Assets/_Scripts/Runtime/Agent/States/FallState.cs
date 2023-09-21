@@ -18,7 +18,8 @@ namespace StatePattern
         {
             movementData.currentVelocity = agent.rb2d.velocity;
             movementData.currentVelocity.y += agent.agentData.gravityModifier * Physics2D.gravity.y * Time.deltaTime;
-            //Mathf.Clamp(movementData.currentVelocity.y, -50, 0f);    
+            movementData.currentVelocity.y = Mathf.Clamp(movementData.currentVelocity.y, agent.agentData.maxFallSpeed, 0);
+
             agent.rb2d.velocity = movementData.currentVelocity;
 
             CalCulateVelocity();
