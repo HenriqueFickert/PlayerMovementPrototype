@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace StatePattern
 {
@@ -36,6 +38,10 @@ namespace StatePattern
 
         [Header("State Debugging:")]
         public string stateName = "";
+
+        [field: SerializeField]
+        private UnityEvent OnRespawnRequired { get; set; }
+
 
         private void Awake()
         {
@@ -88,6 +94,11 @@ namespace StatePattern
             roofDetector.CheckRoof();
             groundDetector.CheckIsGrounded();
             currentState.StateFixedUpdate();
+        }
+
+        public void AgentDied()
+        {
+            OnRespawnRequired?.Invoke();
         }
     }
 }
