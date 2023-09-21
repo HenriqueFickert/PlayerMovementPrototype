@@ -42,7 +42,6 @@ namespace StatePattern
         [field: SerializeField]
         private UnityEvent OnRespawnRequired { get; set; }
 
-
         private void Awake()
         {
             agentInput = GetComponentInParent<PlayerInput>();
