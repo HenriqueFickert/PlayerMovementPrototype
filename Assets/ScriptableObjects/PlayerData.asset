@@ -17,8 +17,9 @@ MonoBehaviour:
   acceleration: 50
   deacceleration: 40
   jumpSpeed: 12
-  gravityModifier: 0.8
+  gravityModifier: 0.85
   lowJumpMultiplier: 2
+  maxFallSpeed: -20
   climbVerticalSpeed: 5
   climbHorizontalSpeed: 2
   dashForce: 10

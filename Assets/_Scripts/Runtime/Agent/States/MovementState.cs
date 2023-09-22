@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace StatePattern
 {
@@ -6,6 +7,8 @@ namespace StatePattern
     {
         [SerializeField]
         protected MovementData movementData;
+
+        public UnityEvent OnStep;
 
         private void Awake()
         {
@@ -15,6 +18,8 @@ namespace StatePattern
         protected override void EnterState()
         {
             agent.animationManager.PlayAnimation(EAgentState.Move);
+
+            agent.animationManager.OnAnimationAction.AddListener(() => OnStep.Invoke());
 
             movementData.horizontalMovementDirection = 0;
             movementData.currentSpeed = 0;
@@ -62,6 +67,11 @@ namespace StatePattern
                 movementData.currentSpeed -= agent.agentData.deacceleration * Time.deltaTime;
 
             movementData.currentSpeed = Mathf.Clamp(movementData.currentSpeed, 0, agent.agentData.maxSpeed);
+        }
+
+        protected override void ExitState()
+        {
+            agent.animationManager.ResetEvents();
         }
     }
 }

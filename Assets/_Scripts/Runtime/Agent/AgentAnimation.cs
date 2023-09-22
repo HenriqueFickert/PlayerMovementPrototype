@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace StatePattern
 {
@@ -7,6 +8,9 @@ namespace StatePattern
     {
         private Animator animator;
         private AnimationClip[] clips;
+
+        public UnityEvent OnAnimationAction;
+        public UnityEvent OnAnimationEnd;
 
         private void Awake()
         {
@@ -26,6 +30,22 @@ namespace StatePattern
         public void Play(string state)
         {
             animator.Play(state, -1, 0f);
+        }
+
+        public void ResetEvents()
+        {
+            OnAnimationAction.RemoveAllListeners();
+            OnAnimationEnd.RemoveAllListeners();
+        }
+
+        public void InvokeAnimationAction()
+        {
+            OnAnimationAction?.Invoke();
+        }
+
+        public void InvokeAnimationEnd()
+        {
+            OnAnimationEnd?.Invoke();
         }
 
         public bool IsInAnimation(EAgentState agentState) => animator.GetCurrentAnimatorStateInfo(0).IsName(agentState.ToString());

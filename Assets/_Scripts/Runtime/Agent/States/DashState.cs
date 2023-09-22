@@ -37,6 +37,11 @@ namespace StatePattern
         {
             movementData.currentVelocity.y = 0;
             agent.rb2d.velocity = movementData.currentVelocity;
+
+            if (!agent.groundDetector.isGrounded)
+            {
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Fall));
+            }
         }
 
         private IEnumerator DashExit()
