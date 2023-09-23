@@ -71,7 +71,10 @@ namespace StatePattern
         }
 
         protected virtual void HandleAttack()
-        { }
+        {
+            if (agent.agentWeaponManager.CanIUseWeapon(agent.groundDetector.isGrounded))
+                agent.agentWeaponManager.GetCurrentWeapon().PerformAttack(agent, 0, Vector3.right);
+        }
 
         protected void TestDashTransition()
         {

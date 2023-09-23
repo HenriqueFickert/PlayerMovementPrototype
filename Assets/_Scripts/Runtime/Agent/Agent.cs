@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using WeaponSystem;
 
 namespace StatePattern
 {
@@ -31,6 +32,9 @@ namespace StatePattern
         private State IdleSate;
 
         [HideInInspector]
+        public AgentWeaponManager agentWeaponManager;
+
+        [HideInInspector]
         public State currentState = null, previousState = null;
 
         public StateFactory stateFactory;
@@ -46,6 +50,7 @@ namespace StatePattern
         {
             agentInput = GetComponentInParent<PlayerInput>();
             rb2d = GetComponent<Rigidbody2D>();
+            agentWeaponManager = GetComponentInChildren<AgentWeaponManager>();
             agentCooldownManager = GetComponent<AgentCooldownManager>();
             animationManager = GetComponentInChildren<AgentAnimation>();
             agentRenderer = GetComponentInChildren<AgentRenderer>();
