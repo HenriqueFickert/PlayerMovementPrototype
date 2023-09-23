@@ -17,3 +17,4 @@ MonoBehaviour:
   weaponDamage: 1
   weaponSwingSound: {fileID: 8300000, guid: 4840b7d0f9ad02041b8128652ee7769f, type: 3}
   attackRange: {x: 1.2, y: 0.5}
+  offset: {x: 0, y: 0}
