@@ -72,8 +72,7 @@ namespace StatePattern
 
         protected virtual void HandleAttack()
         {
-            if (agent.agentWeaponManager.CanIUseWeapon(agent.groundDetector.isGrounded))
-                agent.agentWeaponManager.GetCurrentWeapon().PerformAttack(agent, 0, Vector3.right);
+            TestAttackTrasition();
         }
 
         protected void TestDashTransition()
@@ -93,9 +92,13 @@ namespace StatePattern
         protected virtual void TestJumpTransition()
         {
             if (agent.groundDetector.isGrounded)
-            {
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Jump));
-            }
+        }
+
+        protected virtual void TestAttackTrasition()
+        {
+            if (agent.agentWeaponManager.CanIUseWeapon(agent.groundDetector.isGrounded))
+                agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Attack));
         }
     }
 }

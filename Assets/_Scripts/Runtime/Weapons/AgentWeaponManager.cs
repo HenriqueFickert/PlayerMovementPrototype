@@ -23,7 +23,7 @@ namespace WeaponSystem
             ToggleWeaponVisibility(false);
         }
 
-        private void ToggleWeaponVisibility(bool value)
+        public void ToggleWeaponVisibility(bool value)
         {
             if (value)
                 SwapWeaponSprite(GetCurrentWeapon().weaponSprite);

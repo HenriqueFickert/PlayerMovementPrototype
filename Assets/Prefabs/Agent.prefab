@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7325258301355747318}
   - component: {fileID: 8040885779954988435}
   - component: {fileID: 1180352515824927862}
+  - component: {fileID: 2310686448905347620}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -38,6 +39,7 @@ Transform:
   m_Children:
   - {fileID: 4800822459995509289}
   - {fileID: 9211042700680029228}
+  - {fileID: 8901788827651786405}
   m_Father: {fileID: 2440156425143286090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3722161465861093395
@@ -58,7 +60,7 @@ MonoBehaviour:
   Climbing: {fileID: 8040885779954988435}
   GetHit: {fileID: 0}
   Jump: {fileID: 3624333805984185233}
-  Attack: {fileID: 0}
+  Attack: {fileID: 2310686448905347620}
   Die: {fileID: 0}
   Dash: {fileID: 1180352515824927862}
 --- !u!114 &4439903653623502458
@@ -194,6 +196,43 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   movementData: {fileID: 0}
+--- !u!114 &2310686448905347620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569098726815164695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9799d27928a79094d851375b96bd8dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  hittableLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  OnWeaponSound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1255370938908386566}
+        m_TargetAssemblyTypeName: Audio.AudioFeedback, PlayerMovementPrototype.Runtime
+        m_MethodName: PlaySpecificClip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  showGizmo: 1
 --- !u!1 &1316702682357801659
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,15 +493,15 @@ SpriteRenderer:
   m_SortingLayerID: -20028159
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: dc1a5260470ab9d43a040c4e9c89bead, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5625, y: 1.15625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9103601837882685656
@@ -608,6 +647,7 @@ MonoBehaviour:
   agentRenderer: {fileID: 0}
   animationManager: {fileID: 0}
   IdleSate: {fileID: 4439903653623502458}
+  agentWeaponManager: {fileID: 0}
   currentState: {fileID: 0}
   previousState: {fileID: 0}
   stateFactory: {fileID: 3722161465861093395}
@@ -783,6 +823,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &8196081379457954760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8901788827651786405}
+  - component: {fileID: 1255370938908386566}
+  m_Layer: 0
+  m_Name: AttackFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8901788827651786405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8196081379457954760}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5468194575353453274}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1255370938908386566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8196081379457954760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79a15054fa9cc54ebd597b3fa0c5bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
+  audioSource: {fileID: 2586710576683316342}
+  volume: 1
 --- !u!1 &8767958108993879851
 GameObject:
   m_ObjectHideFlags: 0

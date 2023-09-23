@@ -54,6 +54,11 @@ namespace StatePattern
             //Disable dash
         }
 
+        protected override void HandleAttack()
+        {
+            //Disable attack
+        }
+
         public override void StateFixedUpdate()
         {
             

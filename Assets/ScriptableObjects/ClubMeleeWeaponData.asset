@@ -16,4 +16,4 @@ MonoBehaviour:
   weaponSprite: {fileID: 21300000, guid: dc1a5260470ab9d43a040c4e9c89bead, type: 3}
   weaponDamage: 1
   weaponSwingSound: {fileID: 8300000, guid: 4840b7d0f9ad02041b8128652ee7769f, type: 3}
-  attackRange: {x: 2, y: 2}
+  attackRange: {x: 1.2, y: 0.5}

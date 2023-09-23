@@ -15,11 +15,10 @@ namespace WeaponSystem
             return isGrounded == true;
         }
 
-        public override void PerformAttack(Agent agent, LayerMask hitabbleMastk, Vector3 direction)
+        public override void PerformAttack(Agent agent, LayerMask hitabbleMask, Vector3 direction)
         {
-            Debug.Log("attacked");
             RaycastHit2D hit = Physics2D.BoxCast(agent.agentWeaponManager.transform.position,
-                                          attackRange, 0, direction, 0, hitabbleMastk);
+                                          attackRange, 0, direction, 0, hitabbleMask);
 
             if (hit.collider != null)
             {
@@ -32,7 +31,8 @@ namespace WeaponSystem
 
         public override void DrawWeaponGizmo(Vector3 origin, Vector3 direction)
         {
-            Gizmos.DrawWireCube(origin, attackRange * direction);
+            Vector3 center = origin + direction * attackRange.x / 2;
+            Gizmos.DrawWireCube(center, new Vector3(attackRange.x, attackRange.y, 0));
         }
     }
 }
