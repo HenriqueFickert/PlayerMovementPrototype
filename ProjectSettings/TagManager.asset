@@ -22,7 +22,7 @@ TagManager:
   - Enemies
   - AgentCollider
   - Roof
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Exits
     uniqueID: 2113823917
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2465842719
     locked: 0
   - name: Agents
     uniqueID: 4137073415

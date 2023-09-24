@@ -18,7 +18,7 @@ namespace WeaponSystem
 
         private void Awake()
         {
-            weaponStorage = new WeaponStorage();
+            weaponStorage = new WeaponStorage ();
             spriteRenderer = GetComponent<SpriteRenderer>();
             ToggleWeaponVisibility(false);
         }

@@ -261,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4950518496372047104}
   - component: {fileID: 2088971620706873855}
+  - component: {fileID: 554285519083301691}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -306,6 +307,20 @@ MonoBehaviour:
   OnMenuKeyPressed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &554285519083301691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088064982607346660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a0dd8615542574fbf1aea7631760f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData:
+  - {fileID: 11400000, guid: 8f1b40a8c4c86104f85e2a6e36321000, type: 2}
 --- !u!1 &4857127777932347143
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +847,58 @@ PrefabInstance:
       propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnHealthValueChange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnInitializeMaxHealth.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnHealthValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1299238486318934948}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnInitializeMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1299238486318934948}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnHealthValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnHealthValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnInitializeMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnInitializeMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InitializeMaxHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnHealthValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUI.PlayerUI, PlayerMovementPrototype.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnInitializeMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUI.PlayerUI, PlayerMovementPrototype.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnHealthValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 823194306973658538, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: OnInitializeMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310686448905347620, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: hittableLayerMask.m_Bits
+      value: 147968
+      objectReference: {fileID: 0}
     - target: {fileID: 2440156425143286090, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.42
@@ -876,6 +943,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 2862190603766132002, guid: be640ca3fb85787448e80e2df8295c65, type: 2}
+    - target: {fileID: 3600669600317217544, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 133184
+      objectReference: {fileID: 0}
     - target: {fileID: 3624333805984185233, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.size
       value: 1

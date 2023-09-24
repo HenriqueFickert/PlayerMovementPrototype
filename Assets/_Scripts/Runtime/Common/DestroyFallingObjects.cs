@@ -26,6 +26,11 @@ namespace Common
                 if (agent == null)
                     Destroy(collider.gameObject);
 
+                //Damagable damagable = agent.GetComponent<Damagable>();
+                //if (damagable != null)
+                //    damagable.GetHit(1);
+
+                agent.damagable.GetHit(1);
                 agent.AgentDied();
             }
         }

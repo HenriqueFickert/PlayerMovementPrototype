@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using UnityEngine;
 using UnityEngine.Events;
 using WeaponSystem;
@@ -38,6 +39,7 @@ namespace StatePattern
         public State currentState = null, previousState = null;
 
         public StateFactory stateFactory;
+        public Damagable damagable;
         public AgentCooldownManager agentCooldownManager;
 
         [Header("State Debugging:")]
@@ -57,14 +59,19 @@ namespace StatePattern
             groundDetector = GetComponentInChildren<GroundDetector>();
             climbDetector = GetComponentInChildren<ClimbDetector>();
             roofDetector = GetComponentInChildren<RoofDetector>();
+            damagable = GetComponent<Damagable>();
         }
 
         private void Start()
         {
-            foreach (State state in GetComponentsInChildren<State>())
-                state.InitializeState(this);
+            stateFactory.InitializeStates(this);
+            InitializeAgent();
+        }
 
+        private void InitializeAgent()
+        {
             TransitionToState(IdleSate);
+            damagable.Initialize(agentData.health);
         }
 
         public void TransitionToState(State desiredState)
@@ -103,6 +110,11 @@ namespace StatePattern
         public void AgentDied()
         {
             OnRespawnRequired?.Invoke();
+        }
+
+        public void GetHit()
+        {
+            currentState.GetHit();
         }
     }
 }

@@ -85,6 +85,11 @@ namespace StatePattern
             //Disable movement
         }
 
+        protected override void HandleDash()
+        {
+            //Disable dash
+        }
+
         public override void StateUpdate()
         {
             //Disable update

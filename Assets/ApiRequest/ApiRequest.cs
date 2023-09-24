@@ -37,7 +37,7 @@ public class Usuario
 {
     public string id { get; set; }
     public string nome { get; set; }
-    public string? sobrenome { get; set; }
+    public string sobrenome { get; set; }
     public DateTime dataNascimento { get; set; }
     public string genero { get; set; }
     public string email { get; set; }

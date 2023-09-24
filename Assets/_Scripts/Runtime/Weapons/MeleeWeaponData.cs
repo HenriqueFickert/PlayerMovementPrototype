@@ -8,7 +8,7 @@ namespace WeaponSystem
     [CreateAssetMenu(fileName = "New melee weapon data", menuName = "Weapons/MeleeWeaponData")]
     public class MeleeWeaponData : WeaponData
     {
-        public Vector2 attackRange = new Vector2(2, 2);
+        public Vector2 attackRange = new (2, 2);
         public Vector2 offset = Vector2.zero;
         private Vector2 currentDirectionOffset; 
 
@@ -21,7 +21,7 @@ namespace WeaponSystem
         { 
             currentDirectionOffset = new Vector2(offset.x * direction.x, offset.y);
 
-            RaycastHit2D hit = Physics2D.BoxCast(agent.agentWeaponManager.transform.position + new Vector3(currentDirectionOffset.x, currentDirectionOffset.y, 0), 
+            RaycastHit2D hit = Physics2D.BoxCast(agent.agentWeaponManager.transform.position + direction * (attackRange.x/2) + new Vector3(currentDirectionOffset.x, currentDirectionOffset.y, 0), 
                                       attackRange, 0, direction, 0, hitabbleMask);
 
             if (hit.collider != null)

@@ -65,6 +65,11 @@ namespace StatePattern
             //Disable dash
         }
 
+        protected override void HandleAttack()
+        {
+            //Disable attack
+        }
+
         protected override void ExitState()
         {
             agent.rb2d.gravityScale = previousGravityScale;

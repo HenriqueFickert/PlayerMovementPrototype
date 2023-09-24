@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -99,6 +100,11 @@ namespace StatePattern
         {
             if (agent.agentWeaponManager.CanIUseWeapon(agent.groundDetector.isGrounded))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Attack));
+        }
+
+        public virtual void GetHit()
+        {
+     
         }
     }
 }

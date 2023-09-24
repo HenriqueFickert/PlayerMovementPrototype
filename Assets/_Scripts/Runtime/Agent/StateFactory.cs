@@ -22,5 +22,11 @@ namespace StatePattern
                 EAgentState.Dash => Dash,
                 _ => throw new Exception("State not defined for " + stateType.ToString() + " state type enum.")
             };
+
+        public void InitializeStates(Agent agent)
+        {
+            foreach (State state in GetComponents<State>())
+                state.InitializeState(agent);
+        }
     }
 }

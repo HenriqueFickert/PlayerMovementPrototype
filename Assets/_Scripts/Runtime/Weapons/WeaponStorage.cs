@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace WeaponSystem
 {
-    public class WeaponStorage : MonoBehaviour
+    public class WeaponStorage
     {
-        private List<WeaponData> weaponDataList = new();
+        private List<WeaponData> weaponDataList = new ();
         private int currentWeaponIndex = -1;
         public int WeaponCount { get => weaponDataList.Count; }
 
