@@ -1,7 +1,5 @@
+using RespawnSystem;
 using StatePattern;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Common
@@ -31,6 +29,11 @@ namespace Common
                 //    damagable.GetHit(1);
 
                 agent.damagable.GetHit(1);
+
+                if (agent.damagable.CurrentHealth == 0 && agent.CompareTag("Player")){
+                    agent.GetComponent<RespawnHelper>().RespawnPlyer();
+                }
+
                 agent.AgentDied();
             }
         }

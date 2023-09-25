@@ -76,6 +76,16 @@ namespace StatePattern
             TestAttackTrasition();
         }
 
+        public virtual void Die()
+        {
+            agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Die));
+        }
+
+        public virtual void GetHit()
+        {
+            agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Hit));
+        }
+
         protected void TestDashTransition()
         {
             if (agent.agentCooldownManager.dashCooldown.IsAvailable && agent.groundDetector.isGrounded)
@@ -100,11 +110,6 @@ namespace StatePattern
         {
             if (agent.agentWeaponManager.CanIUseWeapon(agent.groundDetector.isGrounded))
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Attack));
-        }
-
-        public virtual void GetHit()
-        {
-     
         }
     }
 }

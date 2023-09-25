@@ -51,6 +51,7 @@ namespace StatePattern
 
         protected override void ExitState()
         {
+            agent.animationManager.ResetEvents();
             agent.agentWeaponManager.ToggleWeaponVisibility(false);
         }
 

@@ -48,6 +48,9 @@ namespace StatePattern
         [field: SerializeField]
         private UnityEvent OnRespawnRequired { get; set; }
 
+        [field: SerializeField]
+        public UnityEvent OnAgentDied { get; set; }
+
         private void Awake()
         {
             agentInput = GetComponentInParent<PlayerInput>();
@@ -109,7 +112,10 @@ namespace StatePattern
 
         public void AgentDied()
         {
-            OnRespawnRequired?.Invoke();
+            if (damagable.CurrentHealth > 0)
+                OnRespawnRequired?.Invoke();
+            else
+                currentState.Die(); 
         }
 
         public void GetHit()
