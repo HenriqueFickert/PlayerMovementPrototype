@@ -63,7 +63,8 @@ namespace StatePattern
 
             Vector3 position = agent.agentWeaponManager.transform.position;
 
-            agent.agentWeaponManager.GetCurrentWeapon().DrawWeaponGizmo(position, direction);
+            if (agent.agentWeaponManager.GetCurrentWeapon() != null )
+                agent.agentWeaponManager.GetCurrentWeapon().DrawWeaponGizmo(position, direction);
         }
 
         protected override void HandleAttack()
