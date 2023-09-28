@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace StatePattern
 {
-    public class PlayerInput : MonoBehaviour
+    public class PlayerInput : MonoBehaviour, IAgentInput
     {
         [field: SerializeField]
         public Vector2 MovementVector { get; private set; }

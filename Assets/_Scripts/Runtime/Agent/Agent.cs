@@ -12,7 +12,7 @@ namespace StatePattern
         public AgentData agentData;
 
         [Header("Inputs:")]
-        public PlayerInput agentInput;
+        public IAgentInput agentInput;
 
         public GroundDetector groundDetector;
         public ClimbDetector climbDetector;
@@ -53,7 +53,7 @@ namespace StatePattern
 
         private void Awake()
         {
-            agentInput = GetComponentInParent<PlayerInput>();
+            agentInput = GetComponentInParent<IAgentInput>();
             rb2d = GetComponent<Rigidbody2D>();
             agentWeaponManager = GetComponentInChildren<AgentWeaponManager>();
             agentCooldownManager = GetComponent<AgentCooldownManager>();
