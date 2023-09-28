@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 5716942151686853632}
   - component: {fileID: 7507135523849402681}
   - component: {fileID: 1287993154759060622}
+  - component: {fileID: 1006561069108330123}
   m_Layer: 0
   m_Name: Lizzard
   m_TagString: Untagged
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentGroundDetector: {fileID: 2187359063887226892}
-  attackBehaviour: {fileID: 3750514280621924495}
+  attackBehaviour: {fileID: 4715018741120334020}
   patrolBehaviour: {fileID: 3750514280621924495}
 --- !u!114 &1287993154759060622
 MonoBehaviour:
@@ -116,6 +117,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData:
   - {fileID: 11400000, guid: 03300840afb393740bd903ef5a687ebf, type: 2}
+--- !u!114 &1006561069108330123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681256150815939117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f826ae350788c43b598169964546b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2121664639154202224
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +373,62 @@ PrefabInstance:
       propertyPath: agentData
       value: 
       objectReference: {fileID: 11400000, guid: 7da928391d881bb41b54ad50d8ca7df3, type: 2}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnAgentDied>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnAgentDied>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnAgentDied>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1006561069108330123}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnAgentDied>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnAgentDied>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DestoySelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1006561069108330123}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DestoySelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnAgentDied>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Common.DestroyUtil, PlayerMovementPrototype.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Common.DestroyUtil, PlayerMovementPrototype.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnAgentDied>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 613890945447691772, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      propertyPath: <OnRespawnRequired>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 654133333411464252, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: boxCastHeight
       value: 0.3
@@ -451,10 +520,6 @@ PrefabInstance:
     - target: {fileID: 5674808661675506523, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: m_Layer
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 5674808661675506523, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7340998535553288460, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: m_Size.x
