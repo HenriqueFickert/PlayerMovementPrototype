@@ -19,7 +19,7 @@ namespace Common
 
             if (collider != null)
             {
-                Agent agent = collider.transform.parent.GetComponent<Agent>();
+                Agent agent = collider.transform.GetComponent<Agent>();
 
                 if (agent == null)
                     agent = collider.transform.parent.GetComponentInChildren<Agent>();

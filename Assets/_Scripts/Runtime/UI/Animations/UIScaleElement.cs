@@ -28,15 +28,27 @@ namespace UI
 
             if (playConstantly)
             {
-                sequence = DOTween.Sequence().Append(element.DOScale(baseScale, animationTime))
-                    .Append(element.DOScale(endScale, animationTime));
+                sequence = DOTween.Sequence()
+                .Append(element.DOScale(baseScale, animationTime))
+                .Append(element.DOScale(endScale, animationTime));
 
                 sequence.SetLoops(-1, LoopType.Yoyo);
                 sequence.Play();
             }
+        }
 
+        public void PlayAnimation()
+        {
+            sequence = DOTween.Sequence()
+                            .Append(element.DOScale(endScale, animationTime))
+                            .Append(element.DOScale(baseScale, animationTime));
+            sequence.Play();
+        }
 
-
+        private void OnDestroy()
+        {
+            if (sequence != null)
+                sequence.Kill();
         }
     }
 }
