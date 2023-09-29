@@ -69,6 +69,16 @@ namespace StatePattern
         {
             stateFactory.InitializeStates(this);
             InitializeAgent();
+
+            agentInput.OnWeaponChange += SwapWeapon;
+        }
+
+        private void SwapWeapon()
+        {
+            if (agentWeaponManager == null)
+                return;
+
+            agentWeaponManager.SwapWeapon();
         }
 
         private void InitializeAgent()
@@ -121,6 +131,14 @@ namespace StatePattern
         public void GetHit()
         {
             currentState.GetHit();
+        }
+
+        public void PickUp(WeaponData weaponData)
+        {
+            if (agentWeaponManager == null)
+                return;
+
+            agentWeaponManager.PickUpWeapon(weaponData);
         }
     }
 }
