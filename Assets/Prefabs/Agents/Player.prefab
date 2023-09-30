@@ -130,13 +130,14 @@ GameObject:
   - component: {fileID: 2378792949294976056}
   - component: {fileID: 4905365192114824776}
   - component: {fileID: 3797325456585639100}
+  - component: {fileID: 1439211436256408813}
   m_Layer: 0
   m_Name: SwapWeaponTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2507623994591527447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -221,6 +222,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1439211436256408813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243118603255230258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef4d718d3678b246896f8fcba4d3f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: {fileID: 2507623994591527447}
+  animationEndScale: 1.2
+  animationTime: 0.2
+  playConstantly: 0
 --- !u!1 &1720342984441350997
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +372,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTextChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8994727157930936115}
+        m_TargetAssemblyTypeName: Animations.UIScaleTextFont, PlayerMovementPrototype.Runtime
+        m_MethodName: PlayAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2446347642793542598
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,10 +787,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2507623994591527447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: -35}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3951418275263220895
 CanvasRenderer:
@@ -953,7 +982,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4763859145122057640}
   m_Father: {fileID: 8698900093556205719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1070,6 +1100,7 @@ GameObject:
   - component: {fileID: 3498827125746432149}
   - component: {fileID: 5303424335735094577}
   - component: {fileID: 2311739702317188607}
+  - component: {fileID: 3691594280134288355}
   m_Layer: 0
   m_Name: WeaponUI
   m_TagString: Untagged
@@ -1150,6 +1181,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 0
+--- !u!114 &3691594280134288355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555360394539651486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1dc5ad6a1ee8c4087a9c4f71e7c42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSprite: {fileID: 6738549214379044556}
+  weaponSwapTip: {fileID: 1243118603255230258}
+  weaponSwapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7147611994657524953}
+        m_TargetAssemblyTypeName: UI.UIScaleElement, PlayerMovementPrototype.Runtime
+        m_MethodName: PlayAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1439211436256408813}
+        m_TargetAssemblyTypeName: UI.UIScaleElement, PlayerMovementPrototype.Runtime
+        m_MethodName: PlayAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  toggleWeaponTipUI:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7789672320771181989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1236,7 @@ GameObject:
   - component: {fileID: 6016034728256692816}
   - component: {fileID: 4129639203904303376}
   - component: {fileID: 6738549214379044556}
+  - component: {fileID: 7147611994657524953}
   m_Layer: 0
   m_Name: WeaponImage
   m_TagString: Untagged
@@ -1225,6 +1301,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7147611994657524953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7789672320771181989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef4d718d3678b246896f8fcba4d3f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: {fileID: 6016034728256692816}
+  animationEndScale: 1.1
+  animationTime: 0.1
+  playConstantly: 0
 --- !u!1 &7981606640736091039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1479,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &9011743757509489532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4763859145122057640}
+  - component: {fileID: 8994727157930936115}
+  m_Layer: 0
+  m_Name: Feedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4763859145122057640
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9011743757509489532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4769360972521423457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8994727157930936115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9011743757509489532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e305bdf7e17358448ac915465c337005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 3325331356639588271}
+  fontAnimationSize: 80
+  fontAnimationTime: 0.3
 --- !u!1001 &4921691720929022111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1726,7 +1869,7 @@ PrefabInstance:
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6738549214379044556}
+      objectReference: {fileID: 3691594280134288355}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnWeaponPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1741,12 +1884,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_sprite
+      value: SetWeaponImage
       objectReference: {fileID: 0}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnMultipleWeapons.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1243118603255230258}
+      objectReference: {fileID: 3691594280134288355}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnWeaponPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1761,11 +1904,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnMultipleWeapons.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: ToggleWeaponTip
       objectReference: {fileID: 0}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.UI.Image, UnityEngine.UI
+      value: UI.WeaponUI, PlayerMovementPrototype.Runtime
       objectReference: {fileID: 0}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnWeaponPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1777,7 +1920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnMultipleWeapons.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UI.WeaponUI, PlayerMovementPrototype.Runtime
       objectReference: {fileID: 0}
     - target: {fileID: 9103601837882685656, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       propertyPath: OnMultipleWeapons.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -1814,6 +1957,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5674808661675506523, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5469415559703000325}
+    - targetCorrespondingSourceObject: {fileID: 5674808661675506523, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7389844388943747874}
   m_SourcePrefab: {fileID: 100100000, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
 --- !u!1 &760445204553460676 stripped
 GameObject:
@@ -1832,6 +1978,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82aedfbda57cc164abbbbf6e11ce4187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7389844388943747874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760445204553460676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdab5d0af302ed64b9b4124049f25bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPointsValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5239879896952086029}
+        m_TargetAssemblyTypeName: PlayerUI.PointsUI, PlayerMovementPrototype.Runtime
+        m_MethodName: SetPoints
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPickUpPoints:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4920659298198209657}
+        m_TargetAssemblyTypeName: Audio.AudioFeedback, PlayerMovementPrototype.Runtime
+        m_MethodName: PlayClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1130317150336944709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5468194575353453274, guid: 6a8efdc16627d2543824ddbf777e9d94, type: 3}
