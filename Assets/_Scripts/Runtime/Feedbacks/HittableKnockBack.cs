@@ -18,6 +18,7 @@ namespace Feedback
         public void GetHit(GameObject opponent, int weaponDamage)
         {
             Vector2 direction = transform.position - opponent.transform.position;
+            rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
             rb2d.AddForce(new Vector2 (direction.normalized.x, 0) * force, ForceMode2D.Impulse);
         }
     }
