@@ -26,9 +26,9 @@ namespace StatePattern
             previousGravityScale = agent.rb2d.gravityScale;
             agent.rb2d.gravityScale = 0;
 
-            movementData.currentVelocity = agent.rb2d.velocity;
+            movementData.currentVelocity = agent.rb2d.linearVelocity;
             movementData.currentVelocity = new Vector2(agent.agentData.dashForce, 0) * direction;
-            agent.rb2d.velocity = movementData.currentVelocity;
+            agent.rb2d.linearVelocity = movementData.currentVelocity;
 
             StartCoroutine(DashExit());
         }
@@ -36,7 +36,7 @@ namespace StatePattern
         public override void StateUpdate()
         {
             movementData.currentVelocity.y = 0;
-            agent.rb2d.velocity = movementData.currentVelocity;
+            agent.rb2d.linearVelocity = movementData.currentVelocity;
 
             if (!agent.groundDetector.isGrounded)
             {

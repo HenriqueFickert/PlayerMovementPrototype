@@ -1,0 +1,5 @@
+﻿<Solution>
+  <Project Path="PlayerMovementPrototype.Runtime.csproj" />
+  <Project Path="DOTween.Modules.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+</Solution>

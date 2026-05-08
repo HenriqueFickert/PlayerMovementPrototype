@@ -10,7 +10,7 @@ namespace StatePattern
 
             agent.rb2d.isKinematic = true;
             if (agent.groundDetector.isGrounded)
-                agent.rb2d.velocity = Vector2.zero;
+                agent.rb2d.linearVelocity = Vector2.zero;
         }
 
         protected override void HandleMovement(Vector2 input)

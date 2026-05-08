@@ -53,7 +53,7 @@ namespace WeaponSystem
             this.data = data;
             movementDirection = direction;
             isInitialized = true;
-            rb2d.velocity = movementDirection * data.weaponThrowSpeed;
+            rb2d.linearVelocity = movementDirection * data.weaponThrowSpeed;
             layerMask = mask;
         }
 

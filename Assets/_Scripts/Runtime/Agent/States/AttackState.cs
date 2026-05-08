@@ -29,7 +29,7 @@ namespace StatePattern
             direction = agent.transform.right * (agent.transform.localScale.x > 0 ? 1 : -1);
 
             if (agent.groundDetector.isGrounded)
-                agent.rb2d.velocity = Vector2.zero;
+                agent.rb2d.linearVelocity = Vector2.zero;
         }
 
         private void PerformAttack()

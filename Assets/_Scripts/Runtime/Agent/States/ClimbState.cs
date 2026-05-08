@@ -13,7 +13,7 @@ namespace StatePattern
 
             previousGravityScale = agent.rb2d.gravityScale;
             agent.rb2d.gravityScale = 0;
-            agent.rb2d.velocity = Vector2.zero;
+            agent.rb2d.linearVelocity = Vector2.zero;
         }
 
         protected override void HandleJumpPressed()
@@ -26,12 +26,12 @@ namespace StatePattern
             if ((agent.roofDetector.hasRoof && agent.agentInput.MovementVector.y > 0) || (agent.agentInput.MovementVector.y < 0 && !agent.groundDetector.isGrounded))
             {
                 SwitchAnimationIfCurrent(EAgentState.ClimbIdle, EAgentState.Climb);
-                agent.rb2d.velocity = new Vector2(0, agent.agentInput.MovementVector.y * agent.agentData.climbVerticalSpeed);
+                agent.rb2d.linearVelocity = new Vector2(0, agent.agentInput.MovementVector.y * agent.agentData.climbVerticalSpeed);
             }
             else
             {
                 SwitchAnimationIfCurrent(EAgentState.Climb, EAgentState.ClimbIdle);
-                agent.rb2d.velocity = Vector2.zero;
+                agent.rb2d.linearVelocity = Vector2.zero;
             }
 
             if (!agent.climbDetector.CanClimb || (agent.groundDetector.isGrounded && Mathf.Abs(agent.agentInput.MovementVector.x) > 0))

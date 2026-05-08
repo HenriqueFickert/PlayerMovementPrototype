@@ -64,7 +64,7 @@ namespace StatePattern
 
         public override void StateUpdate()
         {
-            agent.rb2d.velocity = new Vector2(0, agent.rb2d.velocity.y);
+            agent.rb2d.linearVelocity = new Vector2(0, agent.rb2d.linearVelocity.y);
         }
 
         public override void StateFixedUpdate()

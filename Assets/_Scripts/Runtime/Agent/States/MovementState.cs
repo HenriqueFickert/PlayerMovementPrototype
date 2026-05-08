@@ -34,13 +34,13 @@ namespace StatePattern
             CalCulateVelocity();
             SetAgentVelocity();
 
-            if (Mathf.Abs(agent.rb2d.velocity.x) < 0.01f)
+            if (Mathf.Abs(agent.rb2d.linearVelocity.x) < 0.01f)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Idle));
         }
 
         protected void SetAgentVelocity()
         {
-            agent.rb2d.velocity = movementData.currentVelocity;
+            agent.rb2d.linearVelocity = movementData.currentVelocity;
         }
 
         protected void CalCulateVelocity()
@@ -48,7 +48,7 @@ namespace StatePattern
             CalculateSpeed(agent.agentInput.MovementVector, movementData);
             CalculateHorizontalDirection(movementData);
             movementData.currentVelocity = Vector3.right * movementData.horizontalMovementDirection * movementData.currentSpeed;
-            movementData.currentVelocity.y = agent.rb2d.velocity.y;
+            movementData.currentVelocity.y = agent.rb2d.linearVelocity.y;
         }
 
         protected void CalculateHorizontalDirection(MovementData movementData)

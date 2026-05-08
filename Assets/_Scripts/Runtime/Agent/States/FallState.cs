@@ -16,11 +16,11 @@ namespace StatePattern
 
         public override void StateUpdate()
         {
-            movementData.currentVelocity = agent.rb2d.velocity;
+            movementData.currentVelocity = agent.rb2d.linearVelocity;
             movementData.currentVelocity.y += agent.agentData.gravityModifier * Physics2D.gravity.y * Time.deltaTime;
             movementData.currentVelocity.y = Mathf.Clamp(movementData.currentVelocity.y, agent.agentData.maxFallSpeed, 0);
 
-            agent.rb2d.velocity = movementData.currentVelocity;
+            agent.rb2d.linearVelocity = movementData.currentVelocity;
 
             CalCulateVelocity();
             SetAgentVelocity();

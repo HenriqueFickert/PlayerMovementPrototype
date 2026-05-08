@@ -15,7 +15,7 @@ namespace Common
 
         public void StopMovement()
         {
-            rb2d.velocity = Vector2.zero;
+            rb2d.linearVelocity = Vector2.zero;
         }
     }
 }

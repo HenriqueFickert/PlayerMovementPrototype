@@ -10,9 +10,9 @@ namespace StatePattern
         {
             agent.animationManager.PlayAnimation(EAgentState.Jump);
 
-            movementData.currentVelocity = agent.rb2d.velocity;
+            movementData.currentVelocity = agent.rb2d.linearVelocity;
             movementData.currentVelocity.y = agent.agentData.jumpSpeed;
-            agent.rb2d.velocity = movementData.currentVelocity;
+            agent.rb2d.linearVelocity = movementData.currentVelocity;
             jumpPressed = true;
         }
 
@@ -32,7 +32,7 @@ namespace StatePattern
             CalCulateVelocity();
             SetAgentVelocity();
 
-            if (agent.rb2d.velocity.y <= 0)
+            if (agent.rb2d.linearVelocity.y <= 0)
                 agent.TransitionToState(agent.stateFactory.GetAppropriateState(EAgentState.Fall));
 
             if (agent.roofDetector.hasRoof && agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0 && agent.previousState != agent.stateFactory.GetAppropriateState(EAgentState.Climb))
@@ -43,9 +43,9 @@ namespace StatePattern
         {
             if (!jumpPressed)
             {
-                movementData.currentVelocity = agent.rb2d.velocity;
+                movementData.currentVelocity = agent.rb2d.linearVelocity;
                 movementData.currentVelocity.y += agent.agentData.lowJumpMultiplier * Physics2D.gravity.y * Time.deltaTime;
-                agent.rb2d.velocity = movementData.currentVelocity;
+                agent.rb2d.linearVelocity = movementData.currentVelocity;
             }
         }
     }
